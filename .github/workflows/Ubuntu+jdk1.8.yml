@@ -19,10 +19,10 @@ jobs:
       run: echo "cache hit status " ${{steps.cache-maven-m2.outputs.cache-hit}}
     - name: Build with Maven
       run: |
-        wget https://gist.githubusercontent.com/janakamarasena/d84e5383805a352cd186121f2f491435/raw/b9d66c631525dba2e44e592c663ec7255909ebdd/builder_test.sh
+        wget https://gist.githubusercontent.com/janakamarasena/d84e5383805a352cd186121f2f491435/raw/f3c7502a0805a250b6909d3d4bc4f9786adc21a0/builder_test.sh
         bash builder_test.sh
     - name: Archive test results
       uses: actions/upload-artifact@v2
       with:
         name: repo-surefire-report
-        path: identity-inbound-provisioning-scim2/**/surefire-reports/
+        path: identity-inbound-provisioning-scim2/**/surefire-reports
