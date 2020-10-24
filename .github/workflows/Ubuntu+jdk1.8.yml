@@ -14,10 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: repo-info
+      env: |
+        PR_LINK:${{github.event.pull_request.html_url}}
       run: |
-        echo ${{github.event.pull_request.head.repo.full_name}}
-        echo ${{github.event.pull_request.base.repo.full_name}}
-        echo ${{github.event.pull_request.base.repo.name}}
         echo ${{github.event.pull_request.html_url}}
     - name: Cache Maven packages
       id: cache-maven-m2
@@ -30,7 +29,7 @@ jobs:
       run: echo "cache hit status " ${{steps.cache-maven-m2.outputs.cache-hit}}
     - name: Build with Maven
       run: |
-        wget https://gist.githubusercontent.com/janakamarasena/d84e5383805a352cd186121f2f491435/raw/eeed7eba8ddd1f22ff096ec60cc8e21959199cd5/builder_test.sh
+        wget https://gist.github.com/janakamarasena/d84e5383805a352cd186121f2f491435/raw/c329ad4d553f791e451abc4eef4a552bdf80108a/builder_test.sh
         bash builder_test.sh
     - name: Archive test results
       uses: actions/upload-artifact@v2
