@@ -13,6 +13,9 @@ jobs:
     if: ${{ github.event.label.name == 'trigger-pr-builder' }}
     runs-on: ubuntu-latest
     steps:
+    - name: repo-info
+      run: |
+        echo ${{pull_request.head.repo.full_name}}
     - name: Cache Maven packages
       id: cache-maven-m2
       uses: actions/cache@v2
