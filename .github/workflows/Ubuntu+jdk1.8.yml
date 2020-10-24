@@ -2,15 +2,15 @@
 name: pr-builder-test
 
 on:
-  pull_request_review:
-    types: [submitted]
+  pull_request:
+    types: [labeled]
     branches:
       - main
 
 
 jobs:
   build:
-    if: github.event.review.state == 'APPROVED'
+    if: ${{ github.event.label.name == 'trigger-pr-builder' }}
     runs-on: ubuntu-latest
     steps:
     - name: Cache Maven packages
