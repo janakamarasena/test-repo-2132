@@ -15,7 +15,7 @@ jobs:
     steps:
     - name: repo-info
       run: |
-        echo ${{pull_request.head.repo.full_name}}
+        echo ${{github.event.pull_request.head.repo.full_name}}
     - name: Cache Maven packages
       id: cache-maven-m2
       uses: actions/cache@v2
