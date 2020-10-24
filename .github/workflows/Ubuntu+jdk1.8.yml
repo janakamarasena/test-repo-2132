@@ -2,7 +2,7 @@
 name: pr-builder-test
 
 on:
-  pull_request:
+  pull_request_target:
     types: [labeled]
     branches:
       - main
