@@ -9,13 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Cache Maven packages
+      id: cache-maven-m2
       uses: actions/cache@v2
       with:
        path: ~/.m2
        key: ${{ runner.os }}-pr-builder
-    - if: steps.cache-primes.outputs.cache-hit == 'true'
+    - if: steps.cache-maven-m2.outputs.cache-hit == 'true'
       run: echo "cache hit == true"
-    - if: steps.cache-primes.outputs.cache-hit != 'true'
+    - if: steps.cache-maven-m2.outputs.cache-hit != 'true'
       run: echo "cache hit == false"
     - name: Build with Maven
       run: |
