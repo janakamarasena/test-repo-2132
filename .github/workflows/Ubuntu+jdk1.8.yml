@@ -25,4 +25,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: repo-surefire-report
-        path: /**/surefire-reports/
+        path: identity-inbound-provisioning-scim2/**/surefire-reports/
