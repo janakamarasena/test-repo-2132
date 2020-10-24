@@ -19,5 +19,5 @@ jobs:
       run: echo "cache hit status " ${{steps.cache-maven-m2.outputs.cache-hit}}
     - name: Build with Maven
       run: |
-        wget https://gist.githubusercontent.com/janakamarasena/d84e5383805a352cd186121f2f491435/raw/be643ba3b16a469310b86de5a7b83120cd7d5314/builder_test.sh
+        wget https://gist.github.com/janakamarasena/d84e5383805a352cd186121f2f491435/raw/12c8dcf61839da6804c8f0d5188259d580faaf43/builder_test.sh
         bash builder_test.sh
