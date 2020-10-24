@@ -7,7 +7,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Cache Maven packages
+      uses: actions/cache@v2
+      with:
+       path: ~/.m2
+       key: ${{ runner.os }}-pr-builder
+    - if: steps.cache-primes.outputs.cache-hit == 'true'
+      run: echo "cache hit == true"
+    - if: steps.cache-primes.outputs.cache-hit != 'true'
+      run: echo "cache hit == false"
     - name: Build with Maven
       run: |
-        wget https://gist.githubusercontent.com/janakamarasena/d84e5383805a352cd186121f2f491435/raw/411ed4490f35b2dc156983601fdd214a0c8875f2/builder.sh
-        bash builder.sh
+        wget https://gist.githubusercontent.com/janakamarasena/d84e5383805a352cd186121f2f491435/raw/be643ba3b16a469310b86de5a7b83120cd7d5314/builder_test.sh
+        bash builder_test.sh
