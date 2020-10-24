@@ -6,6 +6,7 @@ on:
     types: [labeled]
     branches:
       - main
+      - master
 
 
 jobs:
