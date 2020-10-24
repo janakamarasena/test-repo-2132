@@ -1,11 +1,16 @@
 
-name: Ubuntu+jdk1.8
+name: pr-builder-test
 
-on: push
+on:
+  pull_request_review:
+    types: [submitted]
+    branches:
+      - main
 
 
 jobs:
   build:
+    if: github.event.review.state == 'APPROVED'
     runs-on: ubuntu-latest
     steps:
     - name: Cache Maven packages
